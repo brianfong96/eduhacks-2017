@@ -3,7 +3,8 @@
 # Player class
 
 class player:
-    def __init__(self, data):        
+    def __init__(self, data):
+        # ALL TEXTFILE READ WRITE WILL BE REPLACED WITH QUERIES TO DATABASE
         # check if there is saved data in saved text file
         try :
             self.data = open(data, 'r')
