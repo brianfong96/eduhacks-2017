@@ -72,16 +72,12 @@ class Player:
         print("IN  MAIN MENU")
         def press(button):
             if button == "Profile":
-                self.stop()
                 self.show_data()
             elif button == "Ask Q":
-                self.stop()
                 self.ask_question()
             elif button == "Answer Q":
-                self.stop()
                 self.answer_question()
             elif button == "Quit":
-                self.stop()
                 self.turn_off
 
 
@@ -105,13 +101,15 @@ class Player:
     # Display User profile
     def show_data(self):
         print("IN SHOW DATA")
-        app=gui("User Profile","300x300")
-        app.setFont(20)
-        app.addLabel("Username:\n%s" %self.name)
-        app.addLabel("Points:\n%s" %self.points)
-        app.addLabel("Question:\n%s" %self.questions)
-        app.addLabel("Answer:\n%s" %self.answers)
-        app.go
+        self.start.startSubWindow("Profile")
+        self.start.addLabel("Profile", "Your profile details:")
+        self.start.setFont(20)
+        self.start.addLabel("Username:\n%s" %self.name)
+        self.start.addLabel("Points:\n%s" %self.points)
+        self.start.addLabel("Question:\n%s" %self.questions)
+        self.start.addLabel("Answer:\n%s" %self.answers)
+        self.start.stopSubWindow()
+        self.start.showSubWindow("Main Menu")
 
     # save information to text/database
     def save_account(self):
