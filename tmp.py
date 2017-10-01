@@ -23,3 +23,7 @@ def get_account(name, password):
 def get_question(tag):
 	questions = [["biology"],"what is a dog"]
 	return questions
+
+def update_account(name, password, data):
+	print("THIS IS JUST A TEST")
+	return

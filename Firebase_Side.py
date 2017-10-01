@@ -7,7 +7,6 @@ firebase = firebase.FirebaseApplication('https://group-a1.firebaseio.com')
 
 
 def get_key(username):
-    print("WHERE IS KEY?")
     userData = firebase.get(username, None)
     if userData == None:
         return None
@@ -15,19 +14,14 @@ def get_key(username):
     return key
 
 def get_info(username):
-    print("WHERE IS INFO?")
     userData = firebase.get(username, None)
-    print("DATABASE CALL KILLED ME")
     if userData == None:
-        print("JK NO ENTRY")
         return None
-    print('IM A SURVIVOR')
     key = get_key(username)
     info = userData[key]
     return info
 
 def get_account(username, password):
-    print("GETTING ACOUNT IN ACCOUNT_FBSIDE")
     userData = get_info(username)   # dictionary of account info
     ret = None
     if userData != None:

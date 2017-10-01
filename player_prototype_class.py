@@ -1,7 +1,9 @@
 # eduhacks 2017
 # Education/Sim/Tinder
 # Player class
-import Firebase_Side as fb
+# import Account_FBside as fb
+import tmp as fb
+# import QA_FBside as qa
 from appJar import gui
 
 # import tmp as fb # use this when database is down
@@ -19,8 +21,6 @@ class Player:
         self.start.setLabelBg("title", "blue")
         self.start.addLabelEntry("Username")
         self.start.addLabelSecretEntry("Password")
-        
-
         def press(button):
             if button == "Cancel":
                 self.start.stop()
@@ -29,11 +29,11 @@ class Player:
                 self.password = self.start.getEntry("Password")
                 self.on = True
                 print("User:", self.name, "Pass:", self.password)
-                self.start.setLabel("l1", "GETTING ACCOUNT")        
+                print("GETTING ACCOUNT")        
                 self.data = fb.get_account(self.name, self.password)
                  # if not create new account and write to text file
                 if self.data == None:
-                    self.start.setLabel("l1","THIS ACCOUNT DOES NOT EXIST...MAKING NEW")
+                    print("THIS ACCOUNT DOES NOT EXIST...MAKING NEW")
                     # Mastery (Skill level of certain areas like math, science, etc.)
                     self.mastery = ""   # Dictionary mapping skills to level
                     # Currency (used to buy add on's)
@@ -48,7 +48,7 @@ class Player:
                     self.friends = ""
                     self.save_account() # save newly made account
                 else:
-                    self.start.setLabel("l1","LOADING EXISTING ACCOUNT")
+                    print("LOADING EXISTING ACCOUNT")
                     self.mastery = self.data[0] # dictionary format {skill_name: skill_points}
                     self.points = self.data[1]  # currency
                     self.notes = self.data[2]   # note bank (probably just name of files)
@@ -63,7 +63,7 @@ class Player:
         #self.password = input("Please enter your password: ")
         
 
-        self.start.go()
+        #self.start.go()
         self.main_menu()
         
             # self.data = 
@@ -81,17 +81,16 @@ class Player:
             elif button == "Answer Q":
                 self.stop()
                 self.answer_question()
-                elif but
+            elif button == "Quit":
+                self.stop()
+                self.turn_off
 
 
-        self.start.startSubWindow("Main Menu")
-        self.start.addLabel("Menu", "Welcome to the Main Menu, select an option")
-        self.start.addButton("Profile",  self.show_data())
-        self.start.addButton("Ask Q", self.ask_question())
-        self.start.addButton("Answer Q", self.answer_question())
-        self.start.addButton("Quit", self.turn_off())
-        self.start.stopSubWindow()
-        self.start.go()
+            self.start.startSubWindow("Main Menu")
+            self.start.addLabel("Menu", "Welcome to the Main Menu, select an option")
+            self.start.addButtons(["Profile", "Ask Q", "Answer Q", "Quit"], press)
+            self.start.stopSubWindow()
+            self.start.go()
          
 
     # check if player is active

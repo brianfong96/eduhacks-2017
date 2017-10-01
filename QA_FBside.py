@@ -6,10 +6,14 @@ from firebase import firebase
 firebase = firebase.FirebaseApplication('https://qhub-answerquestion.firebaseio.com')
 
 def write_question(questionContent, questionId, userId, answerContent, answerId, mentorId):
+    if questionContent[-1] == '?':
+        questionContent = questionContent[:-1]
     firebase.post(questionContent, {'qContent' : questionContent, 'questionId' : questionId, 'userId': userId,
                                     'answerContent' : answerContent, 'answerId' : answerId, 'mentorId' : mentorId})
 
 def get_key(question):
+    if question[-1] == '?':
+        question = question[:-1]
     questionData = firebase.get(question, None)
     if questionData == None:
         return None
@@ -17,6 +21,8 @@ def get_key(question):
     return key
 
 def get_info(question):
+    if question[-1] == '?':
+        question = question[:-1]
     questionData = firebase.get(question, None)
     if questionData == None:
         return None
@@ -27,6 +33,8 @@ def get_info(question):
     return info
 
 def get_question(question):
+    if question[-1] == '?':
+        question = question[:-1]
     questionData = get_info(question)   # dictionary of account info
     ret = None
     if questionData != None:
@@ -40,7 +48,23 @@ def get_question(question):
 
     return ret
 
+if __name__ == '__main__':
+    q = "q3 is here?"
+    qID = "0"
+    uID = "12"
+    ans = "None"
+    answerId = "None"
+    mentorId = "None"
+    result = get_question(q)
+    if result == None:
+        print("question does not exist...writing question")
+        write_question(q,qID,uID,ans,answerId,mentorId)
+        if get_question(q) != None:
+            print("WRITE WAS SUCCESSFUL!")
+        else:
+            print("try again in the next life")
+    else:
+        print("IT EXISTS")
+        print(result)
 
-#write_question("q2 is here", 1, 11, "No way", 111, 1235)
-result = get_question("q2 is here")
-print(result)
+
