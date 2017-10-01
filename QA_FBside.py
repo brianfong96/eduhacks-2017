@@ -2,6 +2,7 @@
 # Education/Sim/Tinder
 # Player class
 
+from appJar import gui
 from firebase import firebase
 firebase = firebase.FirebaseApplication('https://qhub-answerquestion.firebaseio.com')
 
