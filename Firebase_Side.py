@@ -7,13 +7,10 @@ firebase = firebase.FirebaseApplication('https://group-a1.firebaseio.com')
 
 #firebase.post('/user', {'username' : 'Its data','password' : 'Its data'})
 
-
-print (userData)
-print (type (userData))
-
-
 def get_account(name, password):
 	userData = firebase.get(name, None)
+	print (userData)
+	print (type (userData))
 	if userData != None:
 	    ret = []
 	    ret.append(userData["mastery"])
