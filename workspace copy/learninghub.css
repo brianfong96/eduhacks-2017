@@ -1,0 +1,171 @@
+body, pre {
+    font-family: 'Acumin Pro';
+}
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+#navmain, #navbar {
+    background-color: #00BEAE;
+    margin: 0px;
+    display: block;
+    font-family: 'Acumin Pro Condensed';
+}
+
+#navmain {
+    padding: 0px;
+}
+
+#navbar {
+    font-size: 12pt;
+    font-weight: 300pt;
+    color: white;
+    padding: 6px;
+    padding-left: 20px;
+}
+
+#navcontainer {
+    color: #00BEAE;
+    text-align: left;
+}
+
+#navmain il {
+    padding: 5px;
+}
+
+#navbar il:hover {
+    text-decoration: underline; 
+}
+
+h2 {
+    font-size: 15pt;
+    color: #00BEAE;
+    font-weight: 300;
+}
+
+.welcome {
+    width: 500px;
+    text-align: center;
+    margin: auto;
+    line-height: 30pt; 
+    padding: 15px;
+    padding-bottom: 0px;
+
+}
+
+h3 {
+    font-family: 'Acumin Pro Condensed';
+    font-style: italic;
+    font-weight: bold;
+    padding: 0pt;
+    font-size: 15pt;
+    margin-left: 10px;
+}
+
+.title {
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 1pt;
+    padding: 0pt;
+    margin-left: 30px;
+}
+
+.hidden {
+    display: none;
+}
+
+#scrollnotebook, #updates{
+    margin: 30px;
+    padding: 30px;
+}
+
+#scrollnotebook img, #updates img {
+    padding: 10px;
+}
+
+#notebookcontents {
+    background-color: #484848;
+    color: white;
+    padding: 30px 60px 30px 60px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#notebookcontents il, #notebookcontents ul {
+    padding: 0px;
+}
+
+#notebookcontents il {
+    padding-right: 50px;
+    font-size: 12pt;
+}
+
+.activenotetab {
+    color: #00BEAE;
+}
+
+#media {
+    padding-left: 20px;
+}
+
+#me {
+    float: right;
+    margin-right: 30px;
+    vertical-align: super; 
+}
+
+#bigmeavatar {
+    float: left;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+#mecontent {
+    padding: 20px;
+    margin: 20px;
+}
+
+#myname, #nameq {
+    font-weight: bold;
+    font-size: 18pt;
+    font-family: 'Acumin Pro Condensed';
+}
+
+#myprogresstext {
+    font-size: 8pt;
+}
+
+#skills {
+    font-weight: bold;
+}
+
+pre, #qinfo {
+    line-height: 20pt;
+}
+
+#mentor {
+    text-align: center;
+    margin: auto;
+    padding: auto;
+}
+
+#mentor img {
+    margin: auto;
+    padding: 20px;
+    display: block;
+}
+
+.answer {
+    color: #00BEAE;
+}
+
+.answer:hover {
+    text-decoration: underline; 
+}
+
+#qinfo {
+    padding-left: 400px;
+    padding-right: 400px;
+}
