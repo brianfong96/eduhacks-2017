@@ -5,10 +5,10 @@
     
     $(document).ready(function() {
         $('#gotomentor').click(function() {
-            goToMentor(); 
+            switchCurPage('#mentor'); 
         });
         $('#gotonotebook').click(function() {
-            goToNoteBook();
+            switchCurPage('#frontpage');
         });
         
         $('.notebooks').hover(function() {
@@ -24,41 +24,34 @@
         }); 
         
         $('#me').click(function() {
-            if(!$('#aboutme').hasClass('curpage')) {
-                lastPage = $('.curpage'); 
-                $('#aboutme').removeClass('hidden');
-                $('.curpage').addClass('hidden');
-                $('.curpage').removeClass('curpage');
-                $('#aboutme').addClass('curpage');
+            if(lastPage != $('#me')) {
+                switchCurPage('#aboutme');
             } else {
-                $('#aboutme').removeClass('curpage');
-                $('#aboutme').addClass('hidden');
-                lastPage.addClass('curpage');
-                $('.curpage').removeClass('hidden');
+                switchCurPage(lastPage);
             }
         });
         
         $('.notebooks').click(function() {
             var num = $(this).attr('alt');
-            if(!$(this).hasClass('active') && curNotebook == 0) {
+            if($('#notebookcontents').hasClass('hidden')) { //there is no active notebook is inactive 
                 $(this).attr('src', 'images/Sub_' + num + '.png');
                 $(this).addClass('active');
-                showNotebook();
                 curNotebook = num; 
-            } else if (curNotebook != num) {
+                $('#notebookcontents').removeClass('hidden');
+            } else if(!$(this).hasClass('active')) { //there is an active notebook, but you're switching
                 $('#Sub_' + curNotebook).attr('src', 'images/Sub_' + curNotebook + '_Inactive.png');
+                $('#Sub_' + curNotebook).removeClass('active');
                 $(this).addClass('active');
-                curNotebook = num; 
-            } else {
+                curNotebook = num;
+            } else if(!$('#notebookcontents').hasClass('hidden')) { //close out of active notebook 
                 $(this).removeClass('active');
                 $(this).attr('src', 'images/Sub_' + num + '_Inactive.png');
-                curNotebook = 0; 
+                $('#notebookcontents').addClass('hidden'); 
             }
         }); 
     }); 
     
     $( window ).on( "load", function() {
-        startPage();
         curNotebook = 0; 
     });
     
@@ -70,19 +63,13 @@
         }
     }
     
-    function startPage() {
-        goToNoteBook();
-    }
     
-    function goToNoteBook() {
-        $('#mentor').addClass('hidden');
-        $('#frontpage').removeClass('hidden');
+    function switchCurPage(page) {
+        lastPage = $('.curpage');
+        $('.curpage').addClass('hidden');
+        $('.curpage').removeClass('curpage');
+        $(page).removeClass('hidden');
+        $(page).addClass('curpage');
     }
-    
-    function goToMentor() {
-        $('#frontpage').addClass('hidden');
-        $('#mentor').removeClass('hidden');
-    }
-    
     
 })(); 
