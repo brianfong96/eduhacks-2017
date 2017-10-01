@@ -1,7 +1,7 @@
 # eduhacks 2017
 # Education/Sim/Tinder
 # Player class
-
+import Firebase_Side
 
 class player:
     def __init__(self):
@@ -61,3 +61,4 @@ class player:
 
 
 p = player()
+p.show_Data
