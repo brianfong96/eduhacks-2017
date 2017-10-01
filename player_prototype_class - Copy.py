@@ -2,7 +2,8 @@
 # Education/Sim/Tinder
 # Player class
 import Account_FBside as fb
-#import tmp as fb
+import random
+from datetime import datetime
 import QA_FBside as qa
 from appJar import gui
 
@@ -58,7 +59,7 @@ class Player:
                     self.questions = self.data[3]   # list of questions
                     self.answers = self.data[4]     # list of answers
                     self.friends = self.data[5]     # list of friend user_names
-                
+
                 self.main_menu()
 
         self.start.addButtons(["Submit", "Cancel"], press)
@@ -68,7 +69,7 @@ class Player:
         # self.data =
         self.start.go()
 
-       
+
     def main_menu(self):
         print("IN  MAIN MENU")
         def press(button):
@@ -87,7 +88,7 @@ class Player:
         self.start.addButtons(["Profile", "Ask Q", "Answer Q", "Quit"], press)
         self.start.stopSubWindow()
         self.start.showSubWindow("Main Menu")
-         
+
 
     # check if player is active
     def get_status(self):
@@ -98,7 +99,7 @@ class Player:
     def turn_off(self):
         print("TURNING OFF")
         self.on = False
-    
+
     # Display User profile
     def show_data(self):
         print("IN SHOW DATA")
@@ -118,19 +119,33 @@ class Player:
         tmp_data = [self.mastery, self.points, self.notes, self.questions, self.answers, self.friends]
         fb.update_account(self.name, self.password, tmp_data)
 
+    def randomFunc(self):
+        random.seed(datetime.now())
+        randomId = random.randint(1, 100)
+
+        return str(randomId)
+
     # ask question
     def ask_question(self):
         print("ASKING QUESTION")
         getting_input = True
         userin = input("Enter a question that you want to ask: ")
         question = qa.get_question(userin)
-        print(question)
+        randomIdOne = self.randomFunc()
+        randomIdTwo = self.randomFunc()
 
         if question == None:
-            qa.write_question(userin, "123", self.name, "", "", "")
+            qa.write_question(userin, randomIdOne, randomIdTwo, "", (randomIdOne*43), (randomIdTwo*52))
         else:
             if question[3] == "":
-                print("It has not been answered")
+
+                answerChoice = input("It has not been answered. Would you like to answer it? (y/n)")
+                if answerChoice == 'y':
+                    answer = input("Answer: ")
+                    qa.write_question(userin, randomIdOne, randomIdTwo, answer, (randomIdOne*43), (randomIdTwo*52))
+                else:
+                    print("No worries")
+
             else:
                 print(question[3])
 
@@ -138,8 +153,8 @@ class Player:
         self.points = str(int(self.points) + 1)
 
 
-    # answer question
-    def answer_question(self):
+        # answer question
+
         # query 5 questions
         # print out questions
         # give uesr chocie to answer one of them

@@ -8,6 +8,7 @@ firebase = firebase.FirebaseApplication('https://qhub-answerquestion.firebaseio.
 
 def write_question(questionContent, questionId, userId, answerContent, answerId, mentorId):
     print("QA_FBside | write_question")
+
     if questionContent[-1] == '?':
         questionContent = questionContent[:-1]
         print("Deletting ? from %s" %questionContent)
