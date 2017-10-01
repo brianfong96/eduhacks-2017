@@ -4,19 +4,22 @@
 
 from firebase import firebase
 firebase = firebase.FirebaseApplication('https://group-a1.firebaseio.com')
+#url = 'https://group-a1.firebaseio.com/username'
 
-# firebase.post('/username', {'password' : 'Its data', 'mastery' : 0, 'point' : 0, 'notes' : 0, 'questions' : 0,
-#                             'answers' : 0, 'friends' : 0})
+# firebase.post('/account', {'password' : 'Its data', 'mastery' : 0, 'point' : 0, 'notes' : 0, 'questions' : 0,
+#                               'answers' : 0, 'friends' : 0})
 
 
-userData = firebase.get('/username', None)
-print (userData)
-print (type (userData))
+userData = firebase.get('/account', None)
 
-def get_account(name, password):
-	userData = firebase.get(name, None)
+test = userData['-KvKbRIXG0rsGQ0ryyIb']
+test2=[test['password']]
+print (test2)
+
+def get_account(username, password):
+	userData = firebase.get('/account', None)
 	print (userData)
-	print (type (userData))
+
 	if userData != None:
 	    ret = []
 	    ret.append(userData["mastery"])
