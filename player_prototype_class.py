@@ -1,9 +1,9 @@
 # eduhacks 2017
 # Education/Sim/Tinder
 # Player class
-# import Account_FBside as fb
-import tmp as fb
-# import QA_FBside as qa
+import Account_FBside as fb
+#import tmp as fb
+import QA_FBside as qa
 from appJar import gui
 
 # import tmp as fb # use this when database is down
@@ -21,17 +21,20 @@ class Player:
         self.start.setLabelBg("title", "blue")
         self.start.addLabelEntry("Username")
         self.start.addLabelSecretEntry("Password")
+        self.on = True
         def press(button):
             if button == "Cancel":
                 self.start.stop()
             else:
+
                 self.name = self.start.getEntry("Username")
                 self.password = self.start.getEntry("Password")
-                self.on = True
                 print("User:", self.name, "Pass:", self.password)
-                print("GETTING ACCOUNT")        
+                print("GETTING ACCOUNT")
                 self.data = fb.get_account(self.name, self.password)
-                 # if not create new account and write to text file
+
+
+                # if not create new account and write to text file
                 if self.data == None:
                     print("THIS ACCOUNT DOES NOT EXIST...MAKING NEW")
                     # Mastery (Skill level of certain areas like math, science, etc.)
@@ -55,18 +58,18 @@ class Player:
                     self.questions = self.data[3]   # list of questions
                     self.answers = self.data[4]     # list of answers
                     self.friends = self.data[5]     # list of friend user_names
-                
+
                 self.start.stop()
 
         self.start.addButtons(["Submit", "Cancel"], press)
         #self.name = input("Please enter your name: ")
         #self.password = input("Please enter your password: ")
-        
 
-        #self.start.go()
+
+        self.start.go()
         self.main_menu()
-        
-            # self.data = 
+
+        # self.data =
 
        
     def main_menu(self):
