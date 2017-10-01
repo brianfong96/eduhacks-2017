@@ -58,18 +58,29 @@ class Player:
                     self.questions = self.data[3]   # list of questions
                     self.answers = self.data[4]     # list of answers
                     self.friends = self.data[5]     # list of friend user_names
+<<<<<<< HEAD
 
                 self.start.stop()
+=======
+                
+                self.main_menu()
+>>>>>>> 9d04e4c539f5027e4d0c418bac99862357c603e1
 
         self.start.addButtons(["Submit", "Cancel"], press)
         #self.name = input("Please enter your name: ")
         #self.password = input("Please enter your password: ")
 
+<<<<<<< HEAD
 
         self.start.go()
         self.main_menu()
 
         # self.data =
+=======
+        self.start.go()
+        
+            # self.data = 
+>>>>>>> 9d04e4c539f5027e4d0c418bac99862357c603e1
 
        
     def main_menu(self):
@@ -89,11 +100,11 @@ class Player:
                 self.turn_off
 
 
-            self.start.startSubWindow("Main Menu")
-            self.start.addLabel("Menu", "Welcome to the Main Menu, select an option")
-            self.start.addButtons(["Profile", "Ask Q", "Answer Q", "Quit"], press)
-            self.start.stopSubWindow()
-            self.start.go()
+        self.start.startSubWindow("Main Menu")
+        self.start.addLabel("Menu", "Welcome to the Main Menu, select an option")
+        self.start.addButtons(["Profile", "Ask Q", "Answer Q", "Quit"], press)
+        self.start.stopSubWindow()
+        self.start.showSubWindow("Main Menu")
          
 
     # check if player is active
