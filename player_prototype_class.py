@@ -7,8 +7,25 @@ class player:
         # ALL TEXTFILE READ WRITE WILL BE REPLACED WITH QUERIES TO DATABASE
         # check if there is saved data in saved text file
         try :
-            self.data = open(data, 'r')
-            self.name = self.data[0]
+            self.file = open(data, 'r')
+            self.reading_file = True
+            self.data = []
+            self.loading_data = False
+
+            while self.reading_file:
+                self.temp = self.file.readline()[:-1]
+                if self.temp == "END":
+                    self.reading_file = False
+                else:
+                    self.data.append(self.temp)
+
+            print(self.data)
+
+            self.loading_data = True
+            while self.loading_data:
+                
+
+
         # if not create new account and write to text file
         except:
             self.name = input("Please enter your name: ")
@@ -24,5 +41,20 @@ class player:
             self.answers = []
             # Friends / Network
             self.friends = []
-        
+            
+
     
+    def show_data(self):
+        print("name = %s" %self.name)
+
+    # save information to text/database
+
+    # ask question
+
+    # answer question
+
+    # update notes
+
+
+
+p = player("test.txt")
