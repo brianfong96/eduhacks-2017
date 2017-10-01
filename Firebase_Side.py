@@ -42,19 +42,29 @@ def delete_account(username):
 
 def write_account(username,password,mastery, points, notes, questions, answers, friends):
     firebase.post(username, {'password': password, 'mastery': mastery, 'points': points,
-                             'notes': notes, 'questions': 0, 'answers' : answers, 'friends' : friends})
+                             'notes': notes, 'questions': questions, 'answers' : answers, 'friends' : friends})
     return
 
-def update_account():
-    return
-
-
-username = "account"
-username = "/" + username
-password = "a"
-account = get_account(username, password)
-if account != None:
+def update_account(username, password, userData):
     delete_account(username)
-    print("Successful Delete")
-else:
-    print("Account does not exist")
+    write_account(username, password, userData[0], userData[1], userData[2], userData[3], userData[4],
+                  userData[5])
+    return
+
+if __name__ == "__main__":
+    username = "account"
+    username = "/" + username
+    password = "a"
+    account = get_account(username, password)
+    if account != None:
+        delete_account(username)
+        print("Successful Delete")
+    else:
+        print("Account does not exist")
+        userIn = input("Do you want to make an account?(Y/N)")
+        if userIn.upper() == 'Y':
+            write_account(username, password, 10, 100, "my note", "question", "answ", "5")
+            print ("echoing account")
+            print(get_info(username))
+        else:
+            print("Closing App")
