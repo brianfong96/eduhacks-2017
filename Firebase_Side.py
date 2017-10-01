@@ -28,7 +28,7 @@ def get_account(username, password):
         if password == userData["password"]:
             ret = []
             ret.append(userData["mastery"])
-            ret.append(userData["point"])
+            ret.append(userData["points"])
             ret.append(userData["notes"])
             ret.append(userData["questions"])
             ret.append(userData["answers"])
