@@ -2,6 +2,7 @@
 # Education/Sim/Tinder
 # Player class
 
+
 class player:
     def __init__(self):
         # ALL TEXTFILE READ WRITE WILL BE REPLACED WITH QUERIES TO DATABASE
@@ -26,18 +27,20 @@ class player:
             self.answers = []
             # Friends / Network
             self.friends = []
+
         else:
-            self.mastery = self.data[0]
-            self.points = self.data[1]
-            self.notes = self.data[2]
-            self.questions = self.data[3]
-            self.answers = self.data[4]
-            self.friends = self.data[5]
+            self.mastery = self.data[0] # dictionary format {skill_name: skill_points}
+            self.points = self.data[1]  # currency
+            self.notes = self.data[2]   # note bank (probably just name of files)
+            self.questions = self.data[3]   # list of questions
+            self.answers = self.data[4]     # list of answers
+            self.friends = self.data[5]     # list of friend user_names
             
 
     
     def show_data(self):
-        print("name = %s" %self.name)
+        print("Username:\t%s" %self.name)
+        print("Points:\t%d" %self.points)
 
     # save information to text/database
     def save_account(self):
@@ -50,11 +53,11 @@ class player:
         self.points += 1
         self.save_account()
 
-
     # answer question
-
+    def answer_question(self):
+        userin = input()
     # update notes
 
 
 
-p = player("test.txt")
+p = player()
