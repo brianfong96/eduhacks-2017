@@ -76,7 +76,7 @@ class Player:
             if button == "Profile":
                 self.show_data()
             elif button == "Ask Q":
-                self.ask_question()
+                self.ask_question("ask")
             elif button == "Answer Q":
                 self.answer_question()
             elif button == "Quit":
@@ -120,22 +120,22 @@ class Player:
         fb.update_account(self.name, self.password, tmp_data)
 
     def randomFunc(self):
-        random.seed(datetime.now())
+        #random.seed(datetime.now())
         randomId = random.randint(1, 100)
 
         return str(randomId)
 
     # ask question
-    def ask_question(self):
+    def ask_question(self, prompt):
         print("ASKING QUESTION")
         getting_input = True
-        userin = input("Enter a question that you want to ask: ")
+        userin = input("Enter a question that you want to %s: " %prompt)
         question = qa.get_question(userin)
         randomIdOne = self.randomFunc()
         randomIdTwo = self.randomFunc()
 
         if question == None:
-            qa.write_question(userin, randomIdOne, randomIdTwo, "", (randomIdOne*43), (randomIdTwo*52))
+            qa.write_question(userin, randomIdOne, randomIdTwo, "", (randomIdOne*2), (randomIdTwo*2))
         else:
             if question[3] == "":
 
@@ -153,12 +153,9 @@ class Player:
         self.points = str(int(self.points) + 1)
 
 
-        # answer question
+    def answer_question(self):
+        self.ask_question("answer")
 
-        # query 5 questions
-        # print out questions
-        # give uesr chocie to answer one of them
-        # update question with new answer and write
 
 if __name__ == "__main__":
     def press(btn):
