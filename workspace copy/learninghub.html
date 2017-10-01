@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="learninghub.css" type="text/css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+        <script src="learninghub.js" type="text/javascript"></script>
+    <body>
+        <nav id="navmain" class="navbar navbar-fixed-top navbar-inverse">
+                <div id="navcontainer" class="container">
+                    <div id="navbar" class="navbar-left navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <il>search</il>
+                            <il id="gotonotebook">my notebank</il>
+                            <il id="gotomentor">mentormatch</il>
+                            <il>logout</il>
+                        </ul>
+                        <div id="me">
+                            <img src="images/Avatar_me.png" alt="me" height ="100" id="me"></img> 
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        <main>
+            <div id="frontpage" class="curpage">
+                <div class="newsfeedupdate pageheader">
+                    <div class="welcome">
+                        <h2>Hey Dude welcome back! Feel free to study or checkout what your friends have been up to!<h2/>
+                    </div>
+                </div>
+                <div class="title">
+                    <h3>my notebank</h3>
+                </div>
+                <div id="scrollnotebook">
+                    <img src="images/Sub_1_Inactive.png" alt="1" height="300" class="notebooks" id="Sub_1"></img> 
+                    <img src="images/Sub_2_Inactive.png" alt="2" height="300" class="notebooks" id="Sub_2"></img>
+                    <img src="images/Sub_3_Inactive.png" alt="3" height="300" class="notebooks" id="Sub_3"></img>
+                    <img src="images/Sub_4_Inactive.png" alt="4" height="300" class="notebooks" id="Sub_4"></img>
+                </div>
+                <div id="notebookcontents" class="hidden">
+                    <ul>
+                        <il>Notes</il>
+                        <il class="activenotetab">Media</il>
+                        <il>Archive</il>
+                    </ul>
+                    <div id="media"> 
+                        <img src="images/Media_1.png" alt="1" height="200" class=""></img>
+                        <img src="images/Media_2.png" alt="2" height="200" class=""></img> 
+                        <img src="images/Media_3.png" alt="3" height="200" class=""></img> 
+                        <img src="images/Media_4.png" alt="4" height="200" class=""></img> 
+                        <img src="images/Media_5.png" alt="5" height="200" class=""></img> 
+                    </div>
+                    <p>Stuff</p>
+                </div>
+                <div class="title">
+                    <h3>updates feed</h3>
+                </div>
+                <div id="updates">
+                    <img src="images/Status_1.png" alt='1' height="200" class="status"></img>
+                    <img src="images/Status_2.png" alt='2' height="200" class="status"></img>
+                </div>
+            </div>
+            <div id="mentor" class="hidden">
+                <h3>mentor stuff</h3>
+            </div>
+            <div id="aboutme" class="hidden">
+                <div class="welcome pageheader">
+                    <h2>Look at how much progress you've been making!</h2>
+                </div>
+                <div class="title">
+                    <h3>about me</h3>
+                </div>
+                <div id="mecontent">
+                    <div>
+                        <img src="images/Avatar_me.png" alt="me" height ="300" id="bigmeavatar"></img>
+                        <p id="myname">Daniel Dude</p>
+                        <img src="images/Progressbar_me.png" alt="progress" height="20"></img>
+                        <p id="myprogresstext">275/500<br></br></p>
+                        <p id="skills">Skills</p>
+                        <pre>Bachelor's of Mathematics
+Skilled in Calculus
+Good at Physics
+Excellent in Statistics
+</pre>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
