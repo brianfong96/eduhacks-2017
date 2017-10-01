@@ -7,12 +7,19 @@ from firebase import firebase
 firebase = firebase.FirebaseApplication('https://qhub-answerquestion.firebaseio.com')
 
 def write_question(questionContent, questionId, userId, answerContent, answerId, mentorId):
+    print("QA_FBside | write_question")
     if questionContent[-1] == '?':
         questionContent = questionContent[:-1]
+        print("Deletting ? from %s" %questionContent)
+    print("running question")
+
     firebase.post(questionContent, {'qContent' : questionContent, 'questionId' : questionId, 'userId': userId,
                                     'answerContent' : answerContent, 'answerId' : answerId, 'mentorId' : mentorId})
+    print("finish writing")
 
 def get_key(question):
+    print("QA_FBside | get_key")
+
     if question[-1] == '?':
         question = question[:-1]
     questionData = firebase.get(question, None)
@@ -22,6 +29,7 @@ def get_key(question):
     return key
 
 def get_info(question):
+    print("QA_FBside | get_Info")
     if question[-1] == '?':
         question = question[:-1]
     questionData = firebase.get(question, None)
@@ -34,6 +42,8 @@ def get_info(question):
     return info
 
 def get_question(question):
+    print("QA_FBside | get_question")
+
     if question[-1] == '?':
         question = question[:-1]
     questionData = get_info(question)   # dictionary of account info
