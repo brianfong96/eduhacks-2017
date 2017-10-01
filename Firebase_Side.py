@@ -5,9 +5,10 @@
 from firebase import firebase
 firebase = firebase.FirebaseApplication('https://group-a1.firebaseio.com')
 
-#firebase.post('/user', {'username' : 'Its data','password' : 'Its data'})
+# firebase.post('/username', {'password' : 'Its data', 'mastery' : 0, 'point' : 0, 'notes' : 0, 'questions' : 0,
+#                             'answers' : 0, 'friends' : 0})
 
-userData = firebase.get('/kk', None)
+userData = firebase.get('/username', None)
 print (userData)
 print (type (userData))
 
